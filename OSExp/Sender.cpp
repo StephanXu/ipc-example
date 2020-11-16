@@ -163,9 +163,27 @@ BOOL CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				PIPE_UNLIMITED_INSTANCES,
 				0, 0, 0, NULL);
 
+			/* Initialize listening progress */
 			refreshTimer.SetTimer(100, WatchPID, reinterpret_cast<DWORD_PTR>(hWnd));
 			HANDLE hPipeThread = CreateThread(0, 0, Pipeline, hWnd, 0, 0);
 			CloseHandle(hPipeThread);
+
+			/* Create receiver process */
+			PROCESS_INFORMATION pi{0};
+			STARTUPINFO si{0};
+			si.cb = sizeof(si);
+			si.dwFlags |= STARTF_USESHOWWINDOW | STARTF_USESTDHANDLES;
+			si.wShowWindow = SW_SHOW;
+			CreateProcess(_T("Receiver.exe"),
+			              nullptr,
+			              nullptr,
+			              nullptr,
+			              FALSE,
+			              NULL,
+			              nullptr,
+			              nullptr,
+			              &si,
+			              &pi);
 			break;
 		}
 	case WM_COMMAND:
@@ -228,7 +246,8 @@ BOOL CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PostQuitMessage(0);
 		break;
 	default:
-		return DefWindowProc(hWnd, message, wParam, lParam);
+		break;
 	}
+	return DefWindowProc(hWnd, message, wParam, lParam);
 	return 0;
 }

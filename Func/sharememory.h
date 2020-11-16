@@ -4,9 +4,11 @@
 #ifndef B_SHAREMEMORY_H
 #define B_SHAREMEMORY_H
 
-class MemorySharer {
+class MemorySharer
+{
 public:
-	PVOID CreateMemory(const _bstr_t MemID, const LONG size) {
+	PVOID CreateMemory(const _bstr_t MemID, const LONG size)
+	{
 		m_hMapFile = CreateFileMapping(
 			(HANDLE)0xFFFFFFFF,
 			NULL,
@@ -22,7 +24,9 @@ public:
 			0);
 		return pData;
 	}
-	PVOID GetMemory(const _bstr_t MemID) {
+
+	PVOID GetMemory(const _bstr_t MemID)
+	{
 		m_hMapFile = OpenFileMapping(
 			FILE_MAP_WRITE,
 			FALSE,
@@ -35,6 +39,7 @@ public:
 			0);
 		return pData;
 	}
+
 	PVOID pData;
 	HANDLE m_hMapFile;
 };
