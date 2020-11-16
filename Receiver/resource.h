@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by Receiver.rc
+// Microsoft Visual C++ 生成的包含文件。
+// 供 Receiver.rc 使用
 //
 #define IDC_MYICON                      2
 #define IDD_RECEIVER_DIALOG             102
@@ -17,9 +17,11 @@
 #define IDC_RECEIVER                    109
 #define IDS_MEMORY_MAP                  110
 #define IDS_PIPELINE                    111
+#define IDS_SET_CONNECTION_METHOD       112
 #define IDR_MAINFRAME                   128
 #define IDD_RECEIVER                    129
 #define IDC_LIST1                       1001
+#define IDC_LOG_LIST                    1001
 #define IDC_CURT_PID                    1003
 #define IDC_CONNECTION_METHOD           1004
 #define IDC_RECEIVER_PID                1005

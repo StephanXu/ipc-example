@@ -154,6 +154,8 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Func.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="sharememory.h" />
+    <ClInclude Include="timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

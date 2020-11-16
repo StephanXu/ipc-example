@@ -19,6 +19,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 #pragma data_seg("meta")
 HWND g_wnd[2] = { nullptr };
+int g_connMethod{};
 #pragma data_seg()
 #pragma comment(linker,"/SECTION:meta,RWS")
 
@@ -37,4 +38,14 @@ FUNC_API DWORD WINAPI GetProcessIdFromWnd(HWND hWnd)
     DWORD pid{};
     GetWindowThreadProcessId(hWnd, &pid);
     return pid;
+}
+
+FUNC_API VOID WINAPI SetConnectionMethod(const ConnectionMethod connectionMethod)
+{
+    g_connMethod = connectionMethod;
+}
+
+FUNC_API ConnectionMethod WINAPI GetConnectionMethod()
+{
+    return (ConnectionMethod)g_connMethod;
 }

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by OSExp.rc
+// Microsoft Visual C++ 生成的包含文件。
+// 供 OSExp.rc 使用
 //
 #define IDC_MYICON                      2
 #define IDD_OSEXP_DIALOG                102
@@ -12,6 +12,7 @@
 #define IDS_RECEIVER_PID                105
 #define IDS_CONNECTION_METHOD           106
 #define IDI_OSEXP                       107
+#define IDS_SET_CONNECTION_METHOD       107
 #define IDI_SMALL                       108
 #define IDS_NO_CONNECTION               108
 #define IDC_OSEXP                       109

@@ -25,13 +25,28 @@
 enum ProcessRole
 {
 	PROCESS_ROLE_SENDER = 0,
-	PROCESS_ROLE_RECEIVER = 1
+	PROCESS_ROLE_RECEIVER
+};
+
+enum ConnectionMethod
+{
+	CONNECTION_METHOD_MESSAGE_QUEUE = 0,
+	CONNECTION_METHOD_MEMORY_MAP,
+	CONNECTION_METHOD_PIPELINE
+};
+
+struct SharedMemory
+{
+	bool m_RefreshFlag;
+	WCHAR m_Buffer[0x100];
 };
 
 extern "C" {
 FUNC_API VOID WINAPI SetHWND(const ProcessRole role, const HWND hWnd);
 FUNC_API HWND WINAPI GetHWND(const ProcessRole role);
 FUNC_API DWORD WINAPI GetProcessIdFromWnd(HWND hWnd);
+FUNC_API VOID WINAPI SetConnectionMethod(const ConnectionMethod connectionMethod);
+FUNC_API ConnectionMethod WINAPI GetConnectionMethod();
 }
 
 #endif // FUNC_H
